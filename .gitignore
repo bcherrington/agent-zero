@@ -46,3 +46,15 @@ instruments/**
 
 # Global rule to include .gitkeep files anywhere
 !**/.gitkeep
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/.gitignore
+/.idea/agent-zero.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/.gitignore
+/.idea/agent-zero.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml

@@ -8,7 +8,7 @@ chmod 444 /root/.bashrc
 chmod 444 /root/.profile
 
 # update package list to save time later
-apt-get update
+# apt-get update
 
 # Start SSH service
 exec /usr/sbin/sshd -D

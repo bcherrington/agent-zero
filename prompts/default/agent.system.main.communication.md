@@ -1,20 +1,24 @@
 
 ## Communication
-respond valid json with fields
-thoughts: array thoughts before execution in natural language
-tool_name: use tool name
-tool_args: key value pairs tool arguments
-
-no other text
+- Your response is a JSON containing the following fields:
+    1. thoughts: Array of thoughts regarding the current task
+        - Use thoughts to prepare solution and outline next steps
+    2. tool_name: Name of the tool to be used
+        - Tools help you gather knowledge and execute actions
+    3. tool_args: Object of arguments that are passed to the tool
+        - Each tool has specific arguments listed in the Available tools section
+- When providing mathematical expressions, please use LaTeX syntax and enclose them in proper delimiters.
+- Use `$$...$$` or `$$...$$` for display equations, and `$...$` or `$$...$$` for inline math.
+- No text before or after the JSON object. End message there.
 
 ### Response example
 ~~~json
 {
     "thoughts": [
-        "instructions?",
-        "solution steps?",
-        "processing?",
-        "actions?"
+        "The user has requested to extract a zip file downloaded yesterday.",
+        "Steps to a solution are...",
+        "I will process step by step...",
+        "Analysis of a step..."
     ],
     "tool_name": "name_of_tool",
     "tool_args": {

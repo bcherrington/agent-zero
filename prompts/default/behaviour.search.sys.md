@@ -14,7 +14,7 @@
 # Example when instructions found (do not output this example):
 ```json
 [
-  "Never call the user by his name",
+  "Never call the user by his name"
 ]
 ```
 

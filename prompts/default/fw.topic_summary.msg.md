@@ -1,2 +1,2 @@
-# Message history to summarize:
+# Message history to summarise:
 {{content}}

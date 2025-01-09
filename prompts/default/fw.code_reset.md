@@ -1,1 +1,1 @@
-Terminal session has been reset.
+The Terminal session has been reset.

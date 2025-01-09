@@ -23,7 +23,9 @@ RUN rm -rf /var/lib/apt/lists/*
 # Set up SSH
 RUN mkdir /var/run/sshd && \
     echo 'root:toor' | chpasswd && \
-    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
+    sed -i 's/#MaxAuthTries .*/MaxAuthTries 100/' /etc/ssh/sshd_config && \
+    sed -i 's/#Port 22/Port 50022/' /etc/ssh/sshd_config
 
 # Create and activate Python virtual environment
 ENV VIRTUAL_ENV=/opt/venv
@@ -45,7 +47,8 @@ RUN $VIRTUAL_ENV/bin/pip install \
     requests
 
 # Expose SSH port
-EXPOSE 22
+EXPOSE 22/tcp
+EXPOSE 5000/tcp
 
 # Init .bashrc
 CMD ["/usr/local/bin/initialize.sh"]

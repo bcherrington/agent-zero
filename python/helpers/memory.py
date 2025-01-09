@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from typing import Any, List, Sequence
 from langchain.storage import InMemoryByteStore, LocalFileStore
@@ -26,6 +27,7 @@ from enum import Enum
 from agent import Agent
 import models
 
+logger = logging.getLogger(__name__)
 
 class MyFaiss(FAISS):
     # override aget_by_ids
@@ -278,7 +280,13 @@ class Memory:
                 # fnd = self.db.get(where={"id": {"$in": document_ids}})
                 # if fnd["ids"]: self.db.delete(ids=fnd["ids"])
                 # tot += len(fnd["ids"])
-                self.db.delete(ids=document_ids)
+                try:
+                    self.db.delete(ids=document_ids)
+                except ValueError as e:
+                    logger.info(
+                        f"Missing IDs not deleted: {e}"
+                    )
+
                 tot += len(document_ids)
 
             # If fewer than K document IDs, break the loop

@@ -4,11 +4,11 @@ usage:
 ~~~json
 {
     "thoughts": [
-        "...",
+        "..."
     ],
     "tool_name": "behaviour_update",
     "tool_args": {
-        "adjustments": "behavioral_rules in system prompt updated via this arg",
+        "adjustments": "behavioral_rules are in a system prompt, updated via this arg"
     }
 }
 ~~~

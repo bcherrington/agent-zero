@@ -1,2 +1,2 @@
-# Behavioral rules
+# Behavioural rules
 !!! {{rules}}

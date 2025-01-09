@@ -89,7 +89,8 @@ class DockerContainerManager:
             self.container = self.client.containers.run(
                 self.image,
                 detach=True,
-                ports=self.ports, # type: ignore
+                # ports=self.ports, # type: ignore
+                network_mode='host',
                 name=self.name,
                 volumes=self.volumes, # type: ignore
             ) 

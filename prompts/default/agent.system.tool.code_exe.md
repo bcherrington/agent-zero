@@ -1,73 +1,86 @@
-### code_execution_tool
-
-execute terminal commands python nodejs code for computation or software tasks
-place code in "code" arg; escape carefully and indent properly
-select "runtime" arg: "terminal" "python" "nodejs" "output" "reset"
-for dialogues (Y/N etc.), use "terminal" runtime next step, send answer
-if code runs long, use "output" to wait, "reset" to kill process
-use "pip" "npm" "apt-get" in "terminal" to install packages
-important: never use implicit print/output—it doesn't work!
-to output, use print() or console.log()
-if tool outputs error, adjust code before retrying; knowledge_tool can help
-important: check code for placeholders or demo data; replace with real variables; don't reuse snippets
-don't use with other tools except thoughts; wait for response before using others
-check dependencies before running code
-usage:
-
-1 execute python code
-
+### code_execution_tool:
+Execute provided terminal commands, python code or Node.js code.
+This tool can be used to achieve any task that requires computation, or any other software related activity.
+Place your code escaped and properly indented in the "code" argument.
+Please review and correct code for bugs and typos before running it. 
+Select the corresponding runtime with "runtime" argument.
+Possible values are "terminal", "python" and "Node.js" for code, or "output" and "reset" for additional actions.
+Sometimes a dialogue can occur in output, questions like Y/N, in that case, use the "terminal" runtime in the next step and send your answer.
+If the code is running long, you can use runtime "output" to wait for the next output part or use runtime "reset" to kill the process.
+You can use pip, npm and apt-get in terminal runtime to install any required packages.
+IMPORTANT: Never use implicit print or implicit output, it does not work! If you need output of your code, you MUST use print() or console.log() to output selected variables. 
+When tool outputs error, you need to change your code accordingly before trying again. Read and analyse all errors before trying again. knowledge_tool can help analyse errors.
+IMPORTANT!: Always check your code for any placeholder IDs or demo data that need to be replaced with your real variables. Do not reuse code snippets from tutorials.
+Do not use in combination with other tools except for thoughts. Wait for a response before using other tools.
+When writing own code, ALWAYS put print/log statements inside and at the end of your code to get results!
+**Example usages:**
+1. Execute python code
 ~~~json
 {
     "thoughts": [
-        "Need to do...",
-        "I can use...",
-        "Then I can...",
+        "I need to do...",
+        "I can use the library...",
+        "Then I can..."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
         "runtime": "python",
-        "code": "import os\nprint(os.getcwd())",
+        "code": "import os\nprint(os.getcwd())"
     }
 }
 ~~~
 
-2 execute terminal command
+2. Execute terminal command
 ~~~json
 {
     "thoughts": [
-        "Need to do...",
-        "Need to install...",
+        "I need to do...",
+        "I need to install..."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
         "runtime": "terminal",
-        "code": "apt-get install zip",
+        "code": "apt-get install zip"
     }
 }
 ~~~
 
-2.1 wait for output with long-running scripts
+2.1. Wait for the terminal and check output with long-running scripts
 ~~~json
 {
     "thoughts": [
-        "Waiting for program to finish...",
+        "I will wait for the program to finish..."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
-        "runtime": "output",
+        "runtime": "output"
     }
 }
 ~~~
 
-2.2 reset terminal
+2.2. Answer terminal dialog
 ~~~json
 {
     "thoughts": [
-        "code_execution_tool not responding...",
+        "The Program needs confirmation..."
     ],
     "tool_name": "code_execution_tool",
     "tool_args": {
-        "runtime": "reset",
+        "runtime": "terminal",
+        "code": "Y"
+    }
+}
+~~~
+
+2.3. Reset terminal
+~~~json
+{
+    "thoughts": [
+        "Code execution tool is not responding..."
+    ],
+    "tool_name": "code_execution_tool",
+    "tool_args": {
+        "runtime": "reset"
     }
 }
 ~~~

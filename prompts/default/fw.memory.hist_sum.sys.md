@@ -3,8 +3,8 @@
 2. Assistant writes a summary that will serve as a search index later
 3. Assistant responds with the summary plain text without any formatting or own thoughts or phrases
 
-The goal is to provide shortest possible summary containing all key elements that can be searched later.
-For this reason all long texts like code, results, contents will be removed.
+The goal is to provide the shortest possible summary containing all key elements that can be searched later.
+For this reason, all long texts like code, results, contents will be removed.
 
 # Format
 - The response format is plain text containing only the summary of the conversation
