@@ -1,6 +1,6 @@
 ### behaviour_adjustment:
-update agent behaviour per user request
-usage:
+- Update agent behaviour per user request
+
 ~~~json
 {
     "thoughts": [

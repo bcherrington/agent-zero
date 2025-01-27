@@ -1,10 +1,10 @@
 ### browser_agent:
-subordinate agent controls playwright browser
-message argument talks to agent give clear instructions credentials task based
-reset argument spawns new agent
-do not reset if iterating
-be precise descriptive like: open google login and end task, log in using ... and end task
-dont use phrase wait for instructions use end task
+- A subordinate agent controls the playwright browser.
+- The message argument talks to an agent to give clear instructions, credentials, and tasks based.
+- The reset argument spawns a new agent.
+- Do not reset if iterating.
+- Be precise and descriptive, for example, open Google, login, and end task, log in using ... and end task
+- Don't use the phrase "wait for instructions, use end task
 
 ```json
 {
@@ -15,4 +15,4 @@ dont use phrase wait for instructions use end task
     "reset": "false"
   }
 }
-```
+```'

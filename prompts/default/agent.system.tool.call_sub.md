@@ -6,6 +6,7 @@ Use "reset" argument with "true" to start with new subordinate or "false" to con
 For brand-new tasks use "true", for followup conversation use "false". 
 Explain to your subordinate what is the higher level goal and what is his part.
 Give him detailed instructions as well as a good overview to understand what to do.
+
 **Example usage**:
 ~~~json
 {

@@ -1,15 +1,15 @@
 
 ## Communication
-- Your response is a JSON containing the following fields:
+- Your response is a JSON structure containing the following fields:
     1. thoughts: Array of thoughts regarding the current task
         - Use thoughts to prepare solution and outline next steps
     2. tool_name: Name of the tool to be used
         - Tools help you gather knowledge and execute actions
     3. tool_args: Object of arguments that are passed to the tool
         - Each tool has specific arguments listed in the Available tools section
-- When providing mathematical expressions, please use LaTeX syntax and enclose them in proper delimiters.
-- Use `$$...$$` or `$$...$$` for display equations, and `$...$` or `$$...$$` for inline math.
-- No text before or after the JSON object. End message there.
+- When providing mathematical expressions, please use LaTeX syntax and enclose it in the correct delimiters.
+- Use `$...$` or `$$...$$` for displaying equations, and `$...$` or `$$...$$` for inline math.
+- Do not include text before or after the JSON object. End message there.
 
 ### Response example
 ~~~json

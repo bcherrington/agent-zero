@@ -38,40 +38,40 @@ This architecture ensures:
 ## Implementation Details
 
 ### Directory Structure
-| Directory | Description |
-| --- | --- |
-| `/docker` | Docker-related files for runtime container |
-| `/docs` | Documentation files and guides |
+| Directory      | Description                                      |
+|----------------|--------------------------------------------------|
+| `/docker`      | Docker-related files for runtime container       |
+| `/docs`        | Documentation files and guides                   |
 | `/instruments` | Custom scripts and tools for runtime environment |
-| `/knowledge` | Knowledge base storage |
-| `/logs` | HTML CLI-style chat logs |
-| `/memory` | Persistent agent memory storage |
-| `/prompts` | System and tool prompts |
-| `/python` | Core Python codebase: |
-| `/api` | API endpoints and interfaces |
-| `/extensions` | Modular extensions |
-| `/helpers` | Utility functions |
-| `/tools` | Tool implementations |
-| `/tmp` | Temporary runtime data |
-| `/webui` | Web interface components: |
-| `/css` | Stylesheets |
-| `/js` | JavaScript modules |
-| `/public` | Static assets |
-| `/work_dir` | Working directory |
+| `/knowledge`   | Knowledge base storage                           |
+| `/logs`        | HTML CLI-style chat logs                         |
+| `/memory`      | Persistent agent memory storage                  |
+| `/prompts`     | System and tool prompts                          |
+| `/python`      | Core Python codebase:                            |
+| `/api`         | API endpoints and interfaces                     |
+| `/extensions`  | Modular extensions                               |
+| `/helpers`     | Utility functions                                |
+| `/tools`       | Tool implementations                             |
+| `/tmp`         | Temporary runtime data                           |
+| `/webui`       | Web interface components:                        |
+| `/css`         | Stylesheets                                      |
+| `/js`          | JavaScript modules                               |
+| `/public`      | Static assets                                    |
+| `/work_dir`    | Working directory                                |
 
 ### Key Files
-| File | Description |
-| --- | --- |
-| `.env` | Environment configuration |
-| `agent.py` | Core agent implementation |
-| `example.env` | Configuration template |
-| `initialize.py` | Framework initialization |
-| `models.py` | Model providers and configs |
-| `preload.py` | Pre-initialization routines |
-| `prepare.py` | Environment preparation |
-| `requirements.txt` | Python dependencies |
-| `run_cli.py` | CLI launcher |
-| `run_ui.py` | Web UI launcher |
+| File               | Description                 |
+|--------------------|-----------------------------|
+| `.env`             | Environment configuration   |
+| `agent.py`         | Core agent implementation   |
+| `example.env`      | Configuration template      |
+| `initialize.py`    | Framework initialization    |
+| `models.py`        | Model providers and configs |
+| `preload.py`       | Pre-initialization routines |
+| `prepare.py`       | Environment preparation     |
+| `requirements.txt` | Python dependencies         |
+| `run_cli.py`       | CLI launcher                |
+| `run_ui.py`        | Web UI launcher             |
 
 > [!NOTE]
 > When using the Docker runtime container, these directories are mounted 
@@ -88,10 +88,10 @@ Agent Zero employs a hierarchical agent structure, where a top-level agent (ofte
 
 Communication flows between agents through messages, which are structured according to the prompt templates. These messages typically include:
 
-| Argument | Description |
-| --- | --- |
-| `Thoughts:` | The agent's Chain of Thought and planning process |
-| `Tool name:` | The specific tool used by the agent |
+| Argument                | Description                                             |
+|-------------------------|---------------------------------------------------------|
+| `Thoughts:`             | The agent's Chain of Thought and planning process       |
+| `Tool name:`            | The specific tool used by the agent                     |
 | `Responses or queries:` | Results, feedback or queries from tools or other agents |
 
 #### Interaction Flow
@@ -113,16 +113,16 @@ Tools are functionalities that agents can leverage. These can include anything f
 #### Built-in Tools
 Agent Zero comes with a set of built-in tools designed to help agents perform tasks efficiently:
 
-| Tool | Function |
-| --- | --- |
-| behavior_adjustment | Agent Zero use this tool to change its behavior according to a prior request from the user.
-| call_subordinate | Allows agents to delegate tasks to subordinate agents |
-| code_execution_tool | Allows agents to execute Python, Node.js, and Shell code in the terminal |
-| input | Allows agents to use the keyboard to interact with an active shell |
-| knowledge_tool | Enables agents to retrieve information from memory, knowledge base or online external sources |
-| response_tool | Allows agents to output a response |
-| memory_tool | Enables agents to save, load, delete and forget information from memory |
-| webpage_content_tool | Enables agents to fetch and analyze the text content of webpages |
+| Tool                 | Function                                                                                      |
+|----------------------|-----------------------------------------------------------------------------------------------|
+| behavior_adjustment  | Agent Zero use this tool to change its behavior according to a prior request from the user.   |
+| call_subordinate     | Allows agents to delegate tasks to subordinate agents                                         |
+| code_execution_tool  | Allows agents to execute Python, Node.js, and Shell code in the terminal                      |
+| input                | Allows agents to use the keyboard to interact with an active shell                            |
+| knowledge_tool       | Enables agents to retrieve information from memory, knowledge base or online external sources |
+| response_tool        | Allows agents to output a response                                                            |
+| memory_tool          | Enables agents to save, load, delete and forget information from memory                       |
+| webpage_content_tool | Enables agents to fetch and analyze the text content of webpages                              |
 
 #### Knowledge Tool
 The `knowledge_tool` uses SearXNG to search the web and retrieve information. It can also search the local knowledge base and memory for relevant information. The tool returns a summary of the information, which can be used by the agent to make decisions or answer questions.
@@ -201,16 +201,16 @@ By dynamically adjusting context windows and summarizing past interactions, Agen
 The `prompts` directory contains various Markdown files that control agent behavior and communication. The most important file is `agent.system.main.md`, which acts as a central hub, referencing other prompt files.
 
 #### Core Prompt Files
-| Prompt File | Description |
-|---|---|
-| agent.system.main.role.md | Defines the agent's overall role and capabilities |
-| agent.system.main.communication.md | Specifies how the agent should communicate |
-| agent.system.main.solving.md | Describes the agent's approach to tasks |
-| agent.system.main.tips.md | Provides additional tips or guidance |
-| agent.system.main.behaviour.md | Controls dynamic behavior adjustments and rules |
-| agent.system.main.environment.md | Defines the runtime environment context |
-| agent.system.tools.md | Organizes and calls the individual tool prompt files |
-| agent.system.tool.*.md | Individual tool prompt files |
+| Prompt File                        | Description                                          |
+|------------------------------------|------------------------------------------------------|
+| agent.system.main.role.md          | Defines the agent's overall role and capabilities    |
+| agent.system.main.communication.md | Specifies how the agent should communicate           |
+| agent.system.main.solving.md       | Describes the agent's approach to tasks              |
+| agent.system.main.tips.md          | Provides additional tips or guidance                 |
+| agent.system.main.behaviour.md     | Controls dynamic behavior adjustments and rules      |
+| agent.system.main.environment.md   | Defines the runtime environment context              |
+| agent.system.tools.md              | Organizes and calls the individual tool prompt files |
+| agent.system.tool.*.md             | Individual tool prompt files                         |
 
 #### Prompt Organization
 - **Default Prompts**: Located in `prompts/default/`, serve as the base configuration

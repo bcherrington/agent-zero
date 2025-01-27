@@ -82,7 +82,7 @@ def run():
                 tunnel.start()
             except Exception as e:
                 PrintStyle().error(f"Failed to start Cloudflare tunnel: {e}")
-                PrintStyle().print("Continuing without tunnel...")
+                PrintStyle().print("Continuing without a tunnel...")
 
         # initialize contexts from persisted chats
         persist_chat.load_tmp_chats()
